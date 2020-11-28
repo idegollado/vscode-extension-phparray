@@ -49,6 +49,9 @@
 		"vscode-test": "^1.4.0"
 	},
 	"repository": {
-		"url": "https://github.com/idegollado/vscode-extension-phparray.git"	
+		"url": "https://github.com/idegollado/vscode-extension-phparray.git"
+	},
+	"dependencies": {
+		"fast-xml-parser": "^3.17.4"
 	}
 }

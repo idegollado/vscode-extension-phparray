@@ -1,0 +1,38 @@
+   <ClientDetail/>
+         <RequestedShipment>
+            <DropOffType>REGULAR_PICKUP</DropOffType>
+            <NextBusinessDay>N</NextBusinessDay>
+            <Ship>
+               <Shipper>
+                  <StreetLines>River House</StreetLines>
+                  <City>HOUNSLOW</City>
+                  <StateOrProvinceCode/>
+                  <PostalCode>TW4 6JS</PostalCode>
+                  <CountryCode></CountryCode>
+               </Shipper>
+               <Recipient>
+                  <StreetLines>Main Street</StreetLines>
+                  <City>Cologne</City>
+                  <PostalCode>41564</PostalCode>
+                  <StateOrProvinceCode/>
+                  <CountryCode>DE</CountryCode>
+               </Recipient>
+            </Ship>
+            <Packages>
+               <RequestedPackages number="1">
+                  <Weight>
+                     <Value>10</Value>
+                  </Weight>
+                  <Dimensions>
+                     <Length>3</Length>
+                     <Width>2</Width>
+                     <Height>1</Height>
+                  </Dimensions>
+               </RequestedPackages>
+            </Packages>
+            <ShipTimestamp>2018-11-10T13:00:00GMT+00:00</ShipTimestamp>
+            <UnitOfMeasurement>SI</UnitOfMeasurement>
+            <Content>DOCUMENTS</Content>
+            <PaymentInfo>DDU</PaymentInfo>
+            <Account>8389</Account>
+         </RequestedShipment>

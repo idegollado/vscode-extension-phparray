@@ -17,7 +17,7 @@ function activate(context) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('phparray.xml2php', function () {
+	let disposable = vscode.commands.registerCommand('phparray.xml2php', async function () {
 		// The code you place here will be executed every time your command is executed
 		var editor = vscode.window.activeTextEditor;
 		// Display a message box to the user
@@ -27,16 +27,18 @@ function activate(context) {
 			const jsonData = parser.parse(xmlData, {
 				ignoreNameSpace: true
 			});
-			const terminal = vscode.window.createTerminal("xml To php");
-			const jsonString = JSON.stringify(jsonData);
-
-			const phpArray = jsonString
+			const jsonString = JSON.stringify(jsonData, null, "\t");
+			let phpArray = jsonString
 			.replace(/\{/g,"[")
+			.replace(/,/g,",")
 			.replace(/\}/g, "]")
 			.replace(/:/g,"=>");
+			phpArray = "<?php \n const request = " + phpArray + ";"; 
+			const setting = vscode.Uri.parse("untitled: php_array.php");
+			const doc = await vscode.workspace.openTextDocument(setting);
+			const editor = await vscode.window.showTextDocument(doc, { preview: false });
+			editor.edit((edit) => edit.insert(new vscode.Position(0,0), phpArray ));
 
-			terminal.sendText("echo " + phpArray)
-			terminal.show(true) 
 			vscode.window.showInformationMessage("xml to Php converted correctly!");
 		} else {	
 			vscode.window.showInformationMessage("Invalid xml data");	
